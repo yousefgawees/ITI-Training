@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 2</title>
+</head>
+
+<body>
+
+    <h1>Current Date and Time</h1>
+
+    <button onclick="showDateTime()">Show Date and Time</button>
+
+    <p id="dateTime"></p>
+
+    <script>
+
+        function showDateTime() {
+
+            let currentDate = new Date();
+
+            document.getElementById("dateTime").innerHTML =
+                currentDate.toLocaleString();
+
+        }
+
+    </script>
+
+</body>
+</html>

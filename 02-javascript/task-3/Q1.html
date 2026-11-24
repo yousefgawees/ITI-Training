@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 1</title>
+</head>
+
+<body>
+
+    <h2>Enter Letters Only</h2>
+
+    <input type="text" id="letters" placeholder="Enter letters only">
+
+    <script>
+
+        let textbox = document.getElementById("letters");
+
+        textbox.addEventListener("input", function () {
+
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+
+        });
+
+    </script>
+
+</body>
+</html>

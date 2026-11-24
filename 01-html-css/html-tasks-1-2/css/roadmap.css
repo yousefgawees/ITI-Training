@@ -1,0 +1,98 @@
+body {
+    margin: 8px;
+
+    font-family: "Times New Roman", serif;
+
+    font-size: 16px;
+
+    color: black;
+
+    background-color: white;
+}
+
+
+/* ITI Logo */
+
+.logo img {
+    width: 150px;
+
+    height: auto;
+}
+
+
+/* Navigation */
+
+.navigation {
+    margin-top: 20px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Main Title */
+
+h1 {
+    text-align: center;
+
+    color: #d00045;
+
+    font-size: 32px;
+
+    margin-top: 25px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Headings */
+
+h3 {
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+}
+
+
+/* Lists */
+
+ul,
+ol {
+    margin-top: 10px;
+
+    margin-bottom: 25px;
+}
+
+
+/* Links */
+
+a {
+    color: #0000ee;
+}
+
+
+/* Top */
+
+.top {
+    text-align: center;
+
+    margin-top: 50px;
+
+    margin-bottom: 10px;
+}
+
+
+/* Footer */
+
+footer {
+    border-top: 1px solid #999;
+
+    text-align: center;
+
+    font-weight: bold;
+
+    padding-top: 20px;
+
+    padding-bottom: 5px;
+
+    margin-top: 10px;
+}

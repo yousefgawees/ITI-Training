@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Graduation Countdown</title>
+</head>
+
+<body>
+
+    <h1>Graduation Countdown</h1>
+
+    <h2 id="countdown"></h2>
+
+    <script>
+
+        // Change this date to your actual graduation date
+        let graduationDate = new Date("2027-06-01T00:00:00");
+
+        function updateCountdown() {
+
+            let now = new Date();
+
+            let difference = graduationDate - now;
+
+            if (difference <= 0) {
+
+                document.getElementById("countdown").innerHTML =
+                    "Congratulations! You have graduated!";
+
+                return;
+            }
+
+            let totalSeconds = Math.floor(difference / 1000);
+
+            let months = Math.floor(totalSeconds / (30 * 24 * 60 * 60));
+
+            let remaining = totalSeconds % (30 * 24 * 60 * 60);
+
+            let days = Math.floor(remaining / (24 * 60 * 60));
+
+            remaining %= (24 * 60 * 60);
+
+            let hours = Math.floor(remaining / (60 * 60));
+
+            remaining %= (60 * 60);
+
+            let minutes = Math.floor(remaining / 60);
+
+            let seconds = remaining % 60;
+
+            document.getElementById("countdown").innerHTML =
+                months + " Months, " +
+                days + " Days, " +
+                hours + " Hours, " +
+                minutes + " Minutes, " +
+                seconds + " Seconds";
+
+        }
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+    </script>
+
+</body>
+</html>

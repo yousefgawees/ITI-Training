@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+</head>
+
+<body>
+
+    <script>
+
+        let parameters = new URLSearchParams(window.location.search);
+
+        let username = parameters.get("username");
+
+        document.write(
+            "<h1><b>Welcome " + username + "</b></h1>"
+        );
+
+    </script>
+
+</body>
+</html>

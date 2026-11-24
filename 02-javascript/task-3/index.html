@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Task 3</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        .question {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        #clock {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        #scrollBox {
+            height: 200px;
+            overflow-y: auto;
+            border: 1px solid #aaa;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Task 3</h1>
+
+
+    <!-- ================= Q1 ================= -->
+
+    <div class="question">
+
+        <h2>Question 1</h2>
+
+        <p>Textbox accepts letters only:</p>
+
+        <input type="text" id="letters" placeholder="Enter letters only">
+
+    </div>
+
+
+    <!-- ================= Q2 ================= -->
+
+    <div class="question">
+
+        <h2>Question 2</h2>
+
+        <button id="startClock">Start Clock</button>
+
+        <p id="clock"></p>
+
+    </div>
+
+
+    <!-- ================= Q3 ================= -->
+
+    <div class="question">
+
+        <h2>Question 3</h2>
+
+        <a href="#" id="openAd">Open Advertisement</a>
+
+        <br><br>
+
+        <a href="#" id="closePage">Close This Page</a>
+
+    </div>
+
+
+    <!-- ================= Q4 ================= -->
+
+    <div class="question">
+
+        <h2>Question 4</h2>
+
+        <form action="welcome.html" method="get">
+
+            <label>User Name:</label>
+
+            <input
+                type="text"
+                name="username"
+                value="Enter your user name here"
+            >
+
+            <br><br>
+
+            <label>Password:</label>
+
+            <input
+                type="password"
+                name="password"
+            >
+
+            <br><br>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+    </div>
+
+
+    <!-- ================= Q5 ================= -->
+
+    <div class="question">
+
+        <h2>Question 5</h2>
+
+        <div id="scrollBox">
+
+            <p>
+                JavaScript is a powerful programming language used to create
+                interactive and dynamic web pages.
+            </p>
+
+            <p>
+                JavaScript allows developers to respond to user actions and
+                change the content of a web page.
+            </p>
+
+            <p>
+                JavaScript can be used with HTML and CSS to create complete
+                web applications.
+            </p>
+
+            <p>
+                Developers use JavaScript for frontend and backend development.
+            </p>
+
+            <p>
+                JavaScript provides many useful features such as functions,
+                arrays, objects, events and timers.
+            </p>
+
+            <p>
+                Learning JavaScript requires practice and understanding of
+                programming concepts.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= BONUS ================= -->
+
+    <div class="question">
+
+        <h2>Bonus 1 - Graduation Countdown</h2>
+
+        <h3 id="countdown"></h3>
+
+    </div>
+
+
+    <script>
+
+
+        // ================= Q1 =================
+
+        let textbox = document.getElementById("letters");
+
+        textbox.addEventListener("input", function () {
+
+            this.value = this.value.replace(/[^a-zA-Z\s]/g, "");
+
+        });
+
+
+        // ================= Q2 =================
+
+        let clockInterval;
+
+        document.getElementById("startClock").addEventListener("click", function () {
+
+            function updateClock() {
+
+                let currentTime = new Date();
+
+                document.getElementById("clock").innerHTML =
+                    currentTime.toLocaleTimeString();
+
+            }
+
+            updateClock();
+
+            clearInterval(clockInterval);
+
+            clockInterval = setInterval(updateClock, 1000);
+
+        });
+
+
+        // ================= Q3 =================
+
+        document.getElementById("openAd").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            setTimeout(function () {
+
+                let adWindow = window.open(
+                    "",
+                    "Advertisement",
+                    "width=600,height=500"
+                );
+
+                if (adWindow) {
+
+                    adWindow.document.write(`
+                        <html>
+                        <head>
+                            <title>Advertisement</title>
+                        </head>
+
+                        <body>
+
+                            <h1>Advertisement</h1>
+
+                            <p>
+                                Welcome to our website.
+                                We are happy to provide useful information
+                                and special offers.
+                            </p>
+
+                            <p>
+                                Our website provides different services
+                                and products designed to improve your experience.
+                            </p>
+
+                            <p>
+                                Thank you for visiting our website.
+                            </p>
+
+                        </body>
+                        </html>
+                    `);
+
+                    adWindow.document.close();
+
+                } else {
+
+                    alert("Please allow popups for this page.");
+
+                }
+
+            }, 3000);
+
+        });
+
+
+        document.getElementById("closePage").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            window.close();
+
+        });
+
+
+        // ================= Q5 =================
+
+        setInterval(function () {
+
+            document.getElementById("scrollBox").scrollTop += 20;
+
+        }, 500);
+
+
+        // ================= BONUS COUNTDOWN =================
+
+        let graduationDate = new Date("2027-06-01T00:00:00");
+
+        function updateCountdown() {
+
+            let now = new Date();
+
+            let difference = graduationDate - now;
+
+            if (difference <= 0) {
+
+                document.getElementById("countdown").innerHTML =
+                    "Congratulations! You have graduated!";
+
+                return;
+            }
+
+            let totalSeconds = Math.floor(difference / 1000);
+
+            let months = Math.floor(
+                totalSeconds / (30 * 24 * 60 * 60)
+            );
+
+            let remaining =
+                totalSeconds % (30 * 24 * 60 * 60);
+
+            let days =
+                Math.floor(remaining / (24 * 60 * 60));
+
+            remaining %= (24 * 60 * 60);
+
+            let hours =
+                Math.floor(remaining / (60 * 60));
+
+            remaining %= (60 * 60);
+
+            let minutes =
+                Math.floor(remaining / 60);
+
+            let seconds =
+                remaining % 60;
+
+            document.getElementById("countdown").innerHTML =
+                months + " Months, " +
+                days + " Days, " +
+                hours + " Hours, " +
+                minutes + " Minutes, " +
+                seconds + " Seconds";
+
+        }
+
+        updateCountdown();
+
+        setInterval(updateCountdown, 1000);
+
+
+    </script>
+
+</body>
+</html>

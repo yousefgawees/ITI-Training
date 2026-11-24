@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 3</title>
+</head>
+
+<body>
+
+    <h2>Advertising Window</h2>
+
+    <a href="#" id="openAd">Open Advertisement</a>
+
+    <br><br>
+
+    <a href="#" id="closePage">Close This Page</a>
+
+    <script>
+
+        let adWindow;
+
+        document.getElementById("openAd").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            setTimeout(function () {
+
+                adWindow = window.open("", "Advertisement", "width=600,height=500");
+
+                if (adWindow) {
+
+                    adWindow.document.write(`
+                        <html>
+                        <head>
+                            <title>Advertisement</title>
+                        </head>
+
+                        <body>
+
+                            <h1>Welcome to Our Advertisement</h1>
+
+                            <p>
+                                Welcome to our website. We are happy to provide
+                                you with useful information and special offers.
+                            </p>
+
+                            <p>
+                                Our website provides different services and
+                                products designed to make your experience better.
+                            </p>
+
+                            <p>
+                                Thank you for visiting our website and taking
+                                the time to learn more about our services.
+                            </p>
+
+                        </body>
+                        </html>
+                    `);
+
+                    adWindow.document.close();
+
+                } else {
+
+                    alert("Please allow popups for this page.");
+
+                }
+
+            }, 3000);
+
+        });
+
+
+        document.getElementById("closePage").addEventListener("click", function (event) {
+
+            event.preventDefault();
+
+            window.close();
+
+        });
+
+    </script>
+
+</body>
+</html>

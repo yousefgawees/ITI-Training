@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 1</title>
+</head>
+
+<body>
+
+    <h1>Tip of the Day</h1>
+
+    <p id="tip"></p>
+
+    <script>
+
+        let tips = [
+            "Use let and const instead of var.",
+            "Always use meaningful variable names.",
+            "Use === instead of == when comparing values.",
+            "Keep your functions small and focused.",
+            "Use comments to explain complex code.",
+            "Use console.log() to debug your code.",
+            "Avoid unnecessary global variables.",
+            "Use arrays to store multiple values.",
+            "Use functions to avoid repeating code.",
+            "Practice JavaScript regularly to improve your skills."
+        ];
+
+        let randomIndex = Math.floor(Math.random() * tips.length);
+
+        document.getElementById("tip").innerHTML = tips[randomIndex];
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Question 2</title>
+</head>
+
+<body>
+
+    <h2>Current Time</h2>
+
+    <button id="startClock">Start Clock</button>
+
+    <h2 id="clock"></h2>
+
+    <script>
+
+        let clockInterval;
+
+        document.getElementById("startClock").addEventListener("click", function () {
+
+            function updateClock() {
+
+                let currentTime = new Date();
+
+                document.getElementById("clock").innerHTML =
+                    currentTime.toLocaleTimeString();
+
+            }
+
+            updateClock();
+
+            clockInterval = setInterval(updateClock, 1000);
+
+        });
+
+    </script>
+
+</body>
+</html>

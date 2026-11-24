@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Task 2</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        .question {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        .output {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+
+        #tip {
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>JavaScript Task 2</h1>
+
+
+    <!-- ================= QUESTION 1 ================= -->
+
+    <div class="question">
+
+        <h2>Question 1 - Tip of the Day</h2>
+
+        <p id="tip"></p>
+
+    </div>
+
+
+    <!-- ================= QUESTION 2 ================= -->
+
+    <div class="question">
+
+        <h2>Question 2 - Current Date and Time</h2>
+
+        <button onclick="showDateTime()">
+            Show Date and Time
+        </button>
+
+        <div class="output" id="dateTime"></div>
+
+    </div>
+
+
+    <!-- ================= QUESTION 3 ================= -->
+
+    <div class="question">
+
+        <h2>Question 3 - Count Number</h2>
+
+        <p>
+            Array:
+            [5, 2, 5, 8, 5, 10, 3, 5]
+        </p>
+
+        <input
+            type="number"
+            id="searchNumber"
+            placeholder="Enter number"
+        >
+
+        <button onclick="countNumberOutput()">
+            Count
+        </button>
+
+        <div class="output" id="q3Output"></div>
+
+    </div>
+
+
+    <!-- ================= QUESTION 4 ================= -->
+
+    <div class="question">
+
+        <h2>Question 4 - Remove Character</h2>
+
+        <p>
+            Array:
+            ["a", "b", "c", "a", "d", "a"]
+        </p>
+
+        <input
+            type="text"
+            id="character"
+            maxlength="1"
+            placeholder="Character"
+        >
+
+        <button onclick="removeCharacterOutput()">
+            Remove
+        </button>
+
+        <div class="output" id="q4Output"></div>
+
+    </div>
+
+
+    <!-- ================= QUESTION 5 ================= -->
+
+    <div class="question">
+
+        <h2>Question 5 - Maximum Number</h2>
+
+        <p>
+            Array:
+            [10, 25, 7, 45, 18, 30]
+        </p>
+
+        <button onclick="showMaximum()">
+            Find Maximum
+        </button>
+
+        <div class="output" id="q5Output"></div>
+
+    </div>
+
+
+    <script>
+
+
+        // ================= QUESTION 1 =================
+
+        let tips = [
+
+            "Use let and const instead of var.",
+
+            "Always use meaningful variable names.",
+
+            "Use === instead of == when comparing values.",
+
+            "Keep your functions small and focused.",
+
+            "Use comments to explain complex code.",
+
+            "Use console.log() to debug your code.",
+
+            "Avoid unnecessary global variables.",
+
+            "Use arrays to store multiple values.",
+
+            "Use functions to avoid repeating code.",
+
+            "Practice JavaScript regularly to improve your skills."
+
+        ];
+
+
+        let randomIndex =
+            Math.floor(Math.random() * tips.length);
+
+
+        document.getElementById("tip").innerHTML =
+            "Tip of the day: " + tips[randomIndex];
+
+
+        // ================= QUESTION 2 =================
+
+        function showDateTime() {
+
+            let currentDate = new Date();
+
+            document.getElementById("dateTime").innerHTML =
+                currentDate.toLocaleString();
+
+        }
+
+
+        // ================= QUESTION 3 =================
+
+        function countNumber(arr, number) {
+
+            let count = 0;
+
+            for (let i = 0; i < arr.length; i++) {
+
+                if (arr[i] === number) {
+                    count++;
+                }
+
+            }
+
+            return count;
+
+        }
+
+
+        function countNumberOutput() {
+
+            let numbers =
+                [5, 2, 5, 8, 5, 10, 3, 5];
+
+            let number =
+                Number(document.getElementById("searchNumber").value);
+
+            let result =
+                countNumber(numbers, number);
+
+            document.getElementById("q3Output").innerHTML =
+                "The number " + number +
+                " appears " + result + " times.";
+
+        }
+
+
+        // ================= QUESTION 4 =================
+
+        function removeCharacter(arr, character) {
+
+            let newArray = [];
+
+            for (let i = 0; i < arr.length; i++) {
+
+                if (arr[i] !== character) {
+
+                    newArray.push(arr[i]);
+
+                }
+
+            }
+
+            return newArray;
+
+        }
+
+
+        function removeCharacterOutput() {
+
+            let letters =
+                ["a", "b", "c", "a", "d", "a"];
+
+            let character =
+                document.getElementById("character").value;
+
+            let result =
+                removeCharacter(letters, character);
+
+            document.getElementById("q4Output").innerHTML =
+                "After removing '" +
+                character +
+                "': " +
+                result.join(", ");
+
+        }
+
+
+        // ================= QUESTION 5 =================
+
+        function findMaximum(arr) {
+
+            let max = arr[0];
+
+            for (let i = 1; i < arr.length; i++) {
+
+                if (arr[i] > max) {
+
+                    max = arr[i];
+
+                }
+
+            }
+
+            return max;
+
+        }
+
+
+        function showMaximum() {
+
+            let numbers =
+                [10, 25, 7, 45, 18, 30];
+
+            let result =
+                findMaximum(numbers);
+
+            document.getElementById("q5Output").innerHTML =
+                "The maximum number is: " + result;
+
+        }
+
+
+    </script>
+
+</body>
+</html>
